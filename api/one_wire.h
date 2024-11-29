@@ -31,6 +31,10 @@
 #ifndef PICO_PI_ONEWIRE_H
 #define PICO_PI_ONEWIRE_H
 
+
+#include <vector>
+
+
 #ifdef MOCK_PICO_PI
 
 #include "../test/pico_pi_mocks.h"
@@ -126,7 +130,7 @@ public:
 	 * @param index the index into found devices
 	 * @return the address of
 	 */
-	static rom_address_t &get_address(int index);
+	rom_address_t &get_address(int index);
 
 	/**
 	 * This routine will initiate the temperature conversion within
@@ -189,6 +193,7 @@ private:
 	bool _power_polarity;
 	uint8_t _search_ROM[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 	uint8_t ram[9]{};
+	std::vector<rom_address_t> found_addresses;
 
 	int _last_discrepancy;	// search state
 	bool _last_device;  // search state

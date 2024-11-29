@@ -3,7 +3,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <vector>
 
 #ifdef MOCK_PICO_PI
 
@@ -15,7 +14,7 @@
 
 #endif
 
-std::vector<rom_address_t> found_addresses;
+
 
 One_wire::One_wire(uint data_pin, uint power_pin, bool power_polarity)
 		: _data_pin(data_pin),
